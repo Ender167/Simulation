@@ -498,4 +498,3 @@ MonoBehaviour:
   - hour: 21
     pos: {x: 225, y: 0, z: 0}
   scene_light: {fileID: 769431547}
-  world: {fileID: 1015688058}

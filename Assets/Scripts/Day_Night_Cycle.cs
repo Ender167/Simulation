@@ -10,7 +10,6 @@ public class Day_Night_Cycle : MonoBehaviour
     public Clock clock = new Clock();
     public List<hour_position> light_position = new List<hour_position>();
     public Light scene_light;
-    public Transform world;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +22,15 @@ public class Day_Night_Cycle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //scene_light.transform.RotateAround(world.position, Vector3.right, 20 * Time.deltaTime);
-        scene_light.transform.Rotate(Vector3.right * Time.deltaTime * 20);
+        //scene_light.transform.Rotate(Vector3.right * Time.deltaTime);
+
+        float rotationX = (float) 360f / (float) (clock.hours_in_day * clock.minutes_in_hour * clock.seconds_in_minute);
+
+        // Incrementally rotate the light
+        scene_light.transform.rotation *= Quaternion.Euler(Time.deltaTime * rotationX, 0f, 0f);
+
         clock.incrementSeconds(Time.deltaTime);
+        //Debug.Log(scene_light.transform.rotation + ", " + clock.hours);
     }
 
     Vector3 FindLightPosition()
@@ -102,7 +107,10 @@ public class Clock
         days_in_month = 30;
         months_in_year = 12;
     }
-
+    public double timeToDegrees()
+    {
+        return 360/(seconds * minutes * hours);
+    }
     public void incrementSeconds(double val)
     {
         seconds += val;
