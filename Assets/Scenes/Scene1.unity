@@ -475,26 +475,35 @@ MonoBehaviour:
     days: 0
     months: 0
     years: 0
-    seconds_in_minute: 60
-    minutes_in_hour: 60
+    seconds_in_minute: 10
+    minutes_in_hour: 1
     hours_in_day: 24
     days_in_month: 30
     months_in_year: 12
   light_position:
   - hour: 0
     pos: {x: 270, y: 0, z: 0}
+    state: Midnight
   - hour: 3
     pos: {x: 315, y: 0, z: 0}
+    state: Night
   - hour: 6
     pos: {x: 0, y: 0, z: 0}
+    state: Morning
   - hour: 9
     pos: {x: 45, y: 0, z: 0}
+    state: Morning
   - hour: 12
     pos: {x: 90, y: 0, z: 0}
+    state: Afternoon
   - hour: 15
     pos: {x: 135, y: 0, z: 0}
+    state: Afternoon
   - hour: 18
     pos: {x: 180, y: 0, z: 0}
+    state: Evening
   - hour: 21
     pos: {x: 225, y: 0, z: 0}
+    state: Evening
   scene_light: {fileID: 769431547}
+  current_day_state: 
